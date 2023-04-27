@@ -390,10 +390,12 @@ class DateRangePickerHelper {
     if (dates == null || dates.isEmpty) {
       return defaultTextStyle;
     }
-    final SpecialEvent matchSpecialEvent = dates.singleWhere(
-      (element) => isSameDate(element.date, date),
-      orElse: defaultTextStyle,
-    );
+
+    final SpecialEvent matchSpecialEvent =
+        dates.singleWhere((element) => isSameDate(
+              element.date,
+              date,
+            ));
     return matchSpecialEvent.textStyle;
   }
 
@@ -406,8 +408,8 @@ class DateRangePickerHelper {
       return defaultDecoration;
     }
     final SpecialEvent matchSpecialEvent = dates.singleWhere(
-        (element) => isSameDate(element.date, date),
-        orElse: defaultDecoration);
+      (element) => isSameDate(element.date, date),
+    );
     return matchSpecialEvent.decoration;
   }
 
