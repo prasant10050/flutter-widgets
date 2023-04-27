@@ -391,11 +391,15 @@ class DateRangePickerHelper {
       return defaultTextStyle;
     }
 
-    final SpecialEvent matchSpecialEvent =
-        dates.singleWhere((element) => isSameDate(
-              element.date,
-              date,
-            ));
+    final SpecialEvent matchSpecialEvent = dates.singleWhere(
+      (element) {
+        print(
+            "getEventDateTextStyleWithInVisibleDates ${element.date} - ${date} -${isSameDate(element.date, date)}");
+        return isSameDate(element.date, date);
+      },
+    );
+    print(
+        "getEventDateTextStyleWithInVisibleDates textstyle ${matchSpecialEvent.textStyle}");
     return matchSpecialEvent.textStyle;
   }
 
@@ -408,8 +412,14 @@ class DateRangePickerHelper {
       return defaultDecoration;
     }
     final SpecialEvent matchSpecialEvent = dates.singleWhere(
-      (element) => isSameDate(element.date, date),
+      (element) {
+        print(
+            "getEventDateDecorationWithInVisibleDates ${element.date} - ${date} -${isSameDate(element.date, date)}");
+        return isSameDate(element.date, date);
+      },
     );
+    print(
+        "getEventDateDecorationWithInVisibleDates decoration ${matchSpecialEvent.decoration}");
     return matchSpecialEvent.decoration;
   }
 
