@@ -9509,6 +9509,8 @@ class _PickerScrollViewState extends State<_PickerScrollView>
             widget.picker.monthViewSettings.blackoutDates ||
         oldWidget.picker.monthViewSettings.specialDates !=
             widget.picker.monthViewSettings.specialDates ||
+        oldWidget.picker.monthViewSettings.specialEventDates !=
+            widget.picker.monthViewSettings.specialEventDates ||
         oldWidget.picker.monthViewSettings.weekendDays !=
             widget.picker.monthViewSettings.weekendDays ||
         oldWidget.picker.selectionShape != widget.picker.selectionShape ||
