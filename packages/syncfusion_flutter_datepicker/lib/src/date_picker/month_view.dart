@@ -4500,7 +4500,7 @@ void _drawMonthCellsAndSelection(PaintingContext context, Size size,
       final bool isEventSpecialDate =
           DateRangePickerHelper.isDateWithInVisibleDates(
               monthView.visibleDates, specialEventDates, date);
-      print("isEventSpecialDate ${isEventSpecialDate}");
+
       //
       bool isDisabledDate = DateRangePickerHelper.isDateWithInVisibleDates(
           monthView.visibleDates, monthView.disableDatesCollection, date);
@@ -4905,8 +4905,6 @@ TextStyle _updateTextStyle(
   }
 
   if (isSpecialEventDate) {
-    print(
-        "_updateTextStyle isSpecialEventDate - ${DateRangePickerHelper.getEventDateTextStyleWithInVisibleDates(monthView.specialEventDates, date, monthView.cellStyle.specialDatesTextStyle as TextStyle? ?? monthView.datePickerTheme.specialDatesTextStyle ?? const TextStyle())}");
     return DateRangePickerHelper.getEventDateTextStyleWithInVisibleDates(
         monthView.specialEventDates,
         date,
@@ -4966,8 +4964,6 @@ Decoration? _updateDecoration(
     return monthView.cellStyle.specialDatesDecoration as Decoration;
   }
   if (isSpecialEventDate) {
-    print(
-        "_updateDecoration isSpecialEventDate - ${DateRangePickerHelper.getEventDateDecorationWithInVisibleDates(monthView.specialEventDates, date, monthView.cellStyle.specialDatesDecoration as Decoration)}");
     return DateRangePickerHelper.getEventDateDecorationWithInVisibleDates(
         monthView.specialEventDates,
         date,

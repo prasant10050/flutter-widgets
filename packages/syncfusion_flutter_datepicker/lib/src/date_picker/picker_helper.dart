@@ -393,13 +393,10 @@ class DateRangePickerHelper {
 
     final SpecialEvent matchSpecialEvent = dates.singleWhere(
       (element) {
-        print(
-            "getEventDateTextStyleWithInVisibleDates ${element.date} - ${date} -${isSameDate(element.date, date)}");
         return isSameDate(element.date, date);
       },
     );
-    print(
-        "getEventDateTextStyleWithInVisibleDates textstyle ${matchSpecialEvent.textStyle}");
+
     return matchSpecialEvent.textStyle;
   }
 
@@ -413,13 +410,10 @@ class DateRangePickerHelper {
     }
     final SpecialEvent matchSpecialEvent = dates.singleWhere(
       (element) {
-        print(
-            "getEventDateDecorationWithInVisibleDates ${element.date} - ${date} -${isSameDate(element.date, date)}");
         return isSameDate(element.date, date);
       },
     );
-    print(
-        "getEventDateDecorationWithInVisibleDates decoration ${matchSpecialEvent.decoration}");
+
     return matchSpecialEvent.decoration;
   }
 

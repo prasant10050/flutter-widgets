@@ -1775,41 +1775,44 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
   ///
   /// The properties allows to customize the month cells in month view of
   /// [SfDateRangePicker].
-  const DateRangePickerMonthCellStyle(
-      {@Deprecated('Use selectionColor property in SfDateRangePicker')
-          // ignore: deprecated_member_use, deprecated_member_use_from_same_package
-          this.selectionColor,
-      @Deprecated('Use startRangeSelectionColor property in SfDateRangePicker')
-          // ignore: deprecated_member_use, deprecated_member_use_from_same_package
-          this.startRangeSelectionColor,
-      @Deprecated('Use endRangeSelectionColor property in SfDateRangePicker')
-          // ignore: deprecated_member_use, deprecated_member_use_from_same_package
-          this.endRangeSelectionColor,
-      @Deprecated('Use rangeSelectionColor property in SfDateRangePicker')
-          // ignore: deprecated_member_use, deprecated_member_use_from_same_package
-          this.rangeSelectionColor,
-      this.textStyle,
-      this.todayTextStyle,
-      this.trailingDatesTextStyle,
-      this.leadingDatesTextStyle,
-      @Deprecated('Use selectionTextStyle property in SfDateRangePicker')
-          // ignore: deprecated_member_use, deprecated_member_use_from_same_package
-          this.selectionTextStyle,
-      this.disabledDatesTextStyle,
-      this.blackoutDateTextStyle,
-      this.weekendTextStyle,
-      this.specialDatesTextStyle,
-      this.specialDatesDecoration,
-      this.blackoutDatesDecoration,
-      this.cellDecoration,
-      this.todayCellDecoration,
-      this.disabledDatesDecoration,
-      this.trailingDatesDecoration,
-      this.leadingDatesDecoration,
-      @Deprecated('Use rangeTextStyle property in SfDateRangePicker')
-          // ignore: deprecated_member_use, deprecated_member_use_from_same_package
-          this.rangeTextStyle,
-      this.weekendDatesDecoration});
+  const DateRangePickerMonthCellStyle({
+    @Deprecated('Use selectionColor property in SfDateRangePicker')
+        // ignore: deprecated_member_use, deprecated_member_use_from_same_package
+        this.selectionColor,
+    @Deprecated('Use startRangeSelectionColor property in SfDateRangePicker')
+        // ignore: deprecated_member_use, deprecated_member_use_from_same_package
+        this.startRangeSelectionColor,
+    @Deprecated('Use endRangeSelectionColor property in SfDateRangePicker')
+        // ignore: deprecated_member_use, deprecated_member_use_from_same_package
+        this.endRangeSelectionColor,
+    @Deprecated('Use rangeSelectionColor property in SfDateRangePicker')
+        // ignore: deprecated_member_use, deprecated_member_use_from_same_package
+        this.rangeSelectionColor,
+    this.textStyle,
+    this.todayTextStyle,
+    this.trailingDatesTextStyle,
+    this.leadingDatesTextStyle,
+    @Deprecated('Use selectionTextStyle property in SfDateRangePicker')
+        // ignore: deprecated_member_use, deprecated_member_use_from_same_package
+        this.selectionTextStyle,
+    this.disabledDatesTextStyle,
+    this.blackoutDateTextStyle,
+    this.weekendTextStyle,
+    this.specialDatesTextStyle,
+    this.specialDatesDecoration,
+    this.blackoutDatesDecoration,
+    this.cellDecoration,
+    this.todayCellDecoration,
+    this.disabledDatesDecoration,
+    this.trailingDatesDecoration,
+    this.leadingDatesDecoration,
+    @Deprecated('Use rangeTextStyle property in SfDateRangePicker')
+        // ignore: deprecated_member_use, deprecated_member_use_from_same_package
+        this.rangeTextStyle,
+    this.weekendDatesDecoration,
+    this.specialEventDatesTextStyle,
+    this.specialEventDatesDecoration,
+  });
 
   /// The text style for the text in the [SfDateRangePicker] month cells.
   ///
@@ -2464,6 +2467,8 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
   ///
   /// ```
   final Decoration? specialDatesDecoration;
+  final TextStyle? specialEventDatesTextStyle;
+  final Decoration? specialEventDatesDecoration;
 
   /// The decoration for the weekend date cells of [SfDateRangePicker]
   /// month view.
