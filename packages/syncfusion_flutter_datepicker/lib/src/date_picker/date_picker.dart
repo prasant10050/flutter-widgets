@@ -11314,6 +11314,7 @@ class _PickerViewState extends State<_PickerView>
           widget.picker.monthViewSettings, widget.picker.isHijri),
       widget.picker.monthViewSettings.blackoutDates,
       widget.picker.monthViewSettings.specialDates,
+      widget.picker.monthViewSettings.specialEventDates,
       widget.picker.monthViewSettings.weekendDays,
       widget.picker.selectionShape,
       widget.picker.selectionRadius,

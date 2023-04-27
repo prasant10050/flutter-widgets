@@ -7,6 +7,7 @@ import 'package:syncfusion_flutter_core/theme.dart';
 
 import '../../datepicker.dart';
 import 'picker_helper.dart';
+import 'special_event.dart';
 
 /// Used to hold the month cell widgets.
 class MonthView extends StatefulWidget {
@@ -31,6 +32,7 @@ class MonthView extends StatefulWidget {
       this.showLeadingAndTailingDates,
       this.blackoutDates,
       this.specialDates,
+      this.specialEventDates,
       this.weekendDays,
       this.selectionShape,
       this.selectionRadius,
@@ -88,6 +90,9 @@ class MonthView extends StatefulWidget {
 
   /// Holds the special dates of the [SfDateRangePicker].
   final List<dynamic>? specialDates;
+
+  /// Holds the special dates of the [SfDateRangePicker].
+  final List<SpecialEvent>? specialEventDates;
 
   /// Holds the list of week day index of the [SfDateRangePicker].
   final List<int> weekendDays;
@@ -214,6 +219,8 @@ class _MonthViewState extends State<MonthView> {
             widget.blackoutDates, oldWidget.blackoutDates) ||
         !DateRangePickerHelper.isDateCollectionEquals(
             widget.specialDates, oldWidget.specialDates) ||
+        !DateRangePickerHelper.isEventDateCollectionEquals(
+            widget.specialEventDates, oldWidget.specialEventDates) ||
         widget.showLeadingAndTailingDates !=
             oldWidget.showLeadingAndTailingDates ||
         widget.rowCount != oldWidget.rowCount ||
@@ -423,6 +430,7 @@ class _MonthViewState extends State<MonthView> {
               widget.showLeadingAndTailingDates,
               widget.blackoutDates,
               widget.specialDates,
+              widget.specialEventDates,
               widget.weekendDays,
               widget.selectionShape,
               widget.selectionRadius,
@@ -464,6 +472,7 @@ class _MonthViewState extends State<MonthView> {
               widget.showLeadingAndTailingDates,
               widget.blackoutDates,
               widget.specialDates,
+              widget.specialEventDates,
               widget.weekendDays,
               widget.selectionShape,
               widget.selectionRadius,
@@ -504,6 +513,7 @@ class _MonthViewState extends State<MonthView> {
             widget.showLeadingAndTailingDates,
             widget.blackoutDates,
             widget.specialDates,
+            widget.specialEventDates,
             widget.weekendDays,
             widget.selectionShape,
             widget.selectionRadius,
@@ -544,6 +554,7 @@ class _MonthViewState extends State<MonthView> {
               widget.showLeadingAndTailingDates,
               widget.blackoutDates,
               widget.specialDates,
+              widget.specialEventDates,
               widget.weekendDays,
               widget.selectionShape,
               widget.selectionRadius,
@@ -586,6 +597,7 @@ class _MonthViewState extends State<MonthView> {
               widget.showLeadingAndTailingDates,
               widget.blackoutDates,
               widget.specialDates,
+              widget.specialEventDates,
               widget.weekendDays,
               widget.selectionShape,
               widget.selectionRadius,
@@ -631,6 +643,7 @@ class _MonthViewSingleSelectionRenderWidget
       this.showLeadingAndTailingDates,
       this.blackoutDates,
       this.specialDates,
+      this.specialEventDates,
       this.weekendDays,
       this.selectionShape,
       this.selectionRadius,
@@ -679,6 +692,7 @@ class _MonthViewSingleSelectionRenderWidget
   final List<dynamic>? blackoutDates;
 
   final List<dynamic>? specialDates;
+  final List<SpecialEvent> specialEventDates;
 
   final List<int> weekendDays;
 
@@ -746,6 +760,7 @@ class _MonthViewSingleSelectionRenderWidget
         showLeadingAndTailingDates,
         blackoutDates,
         specialDates,
+        specialEventDates,
         weekendDays,
         selectionShape,
         selectionRadius,
@@ -788,6 +803,7 @@ class _MonthViewSingleSelectionRenderWidget
       ..showLeadingAndTailingDates = showLeadingAndTailingDates
       ..blackoutDates = blackoutDates
       ..specialDates = specialDates
+      ..specialEventDates = specialEventDates
       ..weekendDays = weekendDays
       ..selectionShape = selectionShape
       ..selectionRadius = selectionRadius
@@ -830,6 +846,7 @@ class _MonthViewMultiSelectionRenderWidget
       this.showLeadingAndTailingDates,
       this.blackoutDates,
       this.specialDates,
+      this.specialEventDates,
       this.weekendDays,
       this.selectionShape,
       this.selectionRadius,
@@ -877,6 +894,7 @@ class _MonthViewMultiSelectionRenderWidget
   final List<dynamic>? blackoutDates;
 
   final List<dynamic>? specialDates;
+  final List<SpecialEvent>? specialEventDates;
 
   final List<int> weekendDays;
 
@@ -944,6 +962,7 @@ class _MonthViewMultiSelectionRenderWidget
         showLeadingAndTailingDates,
         blackoutDates,
         specialDates,
+        specialEventDates,
         weekendDays,
         selectionShape,
         selectionRadius,
@@ -986,6 +1005,7 @@ class _MonthViewMultiSelectionRenderWidget
       ..showLeadingAndTailingDates = showLeadingAndTailingDates
       ..blackoutDates = blackoutDates
       ..specialDates = specialDates
+      ..specialEventDates = specialEventDates
       ..weekendDays = weekendDays
       ..selectionShape = selectionShape
       ..selectionRadius = selectionRadius
@@ -1028,6 +1048,7 @@ class _MonthViewRangeSelectionRenderWidget
       this.showLeadingAndTailingDates,
       this.blackoutDates,
       this.specialDates,
+      this.specialEventDates,
       this.weekendDays,
       this.selectionShape,
       this.selectionRadius,
@@ -1076,7 +1097,7 @@ class _MonthViewRangeSelectionRenderWidget
   final List<dynamic>? blackoutDates;
 
   final List<dynamic>? specialDates;
-
+  final List<SpecialEvent>? specialEventDates;
   final List<int> weekendDays;
 
   final DateRangePickerSelectionShape selectionShape;
@@ -1143,6 +1164,7 @@ class _MonthViewRangeSelectionRenderWidget
         showLeadingAndTailingDates,
         blackoutDates,
         specialDates,
+        specialEventDates,
         weekendDays,
         selectionShape,
         selectionRadius,
@@ -1185,6 +1207,7 @@ class _MonthViewRangeSelectionRenderWidget
       ..showLeadingAndTailingDates = showLeadingAndTailingDates
       ..blackoutDates = blackoutDates
       ..specialDates = specialDates
+      ..specialEventDates = specialEventDates
       ..weekendDays = weekendDays
       ..selectionShape = selectionShape
       ..selectionRadius = selectionRadius
@@ -1227,6 +1250,7 @@ class _MonthViewExtendableRangeSelectionRenderWidget
       this.showLeadingAndTailingDates,
       this.blackoutDates,
       this.specialDates,
+      this.specialEventDates,
       this.weekendDays,
       this.selectionShape,
       this.selectionRadius,
@@ -1274,7 +1298,7 @@ class _MonthViewExtendableRangeSelectionRenderWidget
   final List<dynamic>? blackoutDates;
 
   final List<dynamic>? specialDates;
-
+  final List<SpecialEvent>? specialEventDates;
   final List<int> weekendDays;
 
   final DateRangePickerSelectionShape selectionShape;
@@ -1345,6 +1369,7 @@ class _MonthViewExtendableRangeSelectionRenderWidget
         showLeadingAndTailingDates,
         blackoutDates,
         specialDates,
+        specialEventDates,
         weekendDays,
         selectionShape,
         selectionRadius,
@@ -1388,6 +1413,7 @@ class _MonthViewExtendableRangeSelectionRenderWidget
       ..showLeadingAndTailingDates = showLeadingAndTailingDates
       ..blackoutDates = blackoutDates
       ..specialDates = specialDates
+      ..specialEventDates = specialEventDates
       ..weekendDays = weekendDays
       ..selectionShape = selectionShape
       ..selectionRadius = selectionRadius
@@ -1431,6 +1457,7 @@ class _MonthViewMultiRangeSelectionRenderWidget
       this.showLeadingAndTailingDates,
       this.blackoutDates,
       this.specialDates,
+      this.specialEventDates,
       this.weekendDays,
       this.selectionShape,
       this.selectionRadius,
@@ -1477,7 +1504,7 @@ class _MonthViewMultiRangeSelectionRenderWidget
   final List<dynamic>? blackoutDates;
 
   final List<dynamic>? specialDates;
-
+  final List<SpecialEvent>? specialEventDates;
   final List<int> weekendDays;
 
   final DateRangePickerSelectionShape selectionShape;
@@ -1546,6 +1573,7 @@ class _MonthViewMultiRangeSelectionRenderWidget
         showLeadingAndTailingDates,
         blackoutDates,
         specialDates,
+        specialEventDates,
         weekendDays,
         selectionShape,
         selectionRadius,
@@ -1588,6 +1616,7 @@ class _MonthViewMultiRangeSelectionRenderWidget
       ..showLeadingAndTailingDates = showLeadingAndTailingDates
       ..blackoutDates = blackoutDates
       ..specialDates = specialDates
+      ..specialEventDates = specialEventDates
       ..weekendDays = weekendDays
       ..selectionShape = selectionShape
       ..selectionRadius = selectionRadius
@@ -1614,41 +1643,43 @@ class _DatePickerParentData extends ContainerBoxParentData<RenderBox> {}
 abstract class _IMonthView extends RenderBox
     with ContainerRenderObjectMixin<RenderBox, _DatePickerParentData> {
   _IMonthView(
-      this._visibleDates,
-      this._rowCount,
-      this._cellStyle,
-      this._selectionTextStyle,
-      this._rangeTextStyle,
-      this._selectionColor,
-      this._startRangeSelectionColor,
-      this._endRangeSelectionColor,
-      this._rangeSelectionColor,
-      this._datePickerTheme,
-      this._isRtl,
-      this._todayHighlightColor,
-      this._minDate,
-      this._maxDate,
-      this._enablePastDates,
-      this._showLeadingAndTailingDates,
-      this._blackoutDates,
-      this._specialDates,
-      this._weekendDays,
-      this._selectionShape,
-      this._selectionRadius,
-      this._mouseHoverPosition,
-      this._enableMultiView,
-      this._multiViewSpacing,
-      this.selectionNotifier,
-      this._textScaleFactor,
-      this._height,
-      this._width,
-      this._isHijri,
-      this._navigationDirection,
-      this.localizations,
-      this.isMobilePlatform,
-      this._weekNumberStyle,
-      this._weekNumberPanelWidth,
-      this._disableDatesCollection);
+    this._visibleDates,
+    this._rowCount,
+    this._cellStyle,
+    this._selectionTextStyle,
+    this._rangeTextStyle,
+    this._selectionColor,
+    this._startRangeSelectionColor,
+    this._endRangeSelectionColor,
+    this._rangeSelectionColor,
+    this._datePickerTheme,
+    this._isRtl,
+    this._todayHighlightColor,
+    this._minDate,
+    this._maxDate,
+    this._enablePastDates,
+    this._showLeadingAndTailingDates,
+    this._blackoutDates,
+    this._specialDates,
+    this._weekendDays,
+    this._selectionShape,
+    this._selectionRadius,
+    this._mouseHoverPosition,
+    this._enableMultiView,
+    this._multiViewSpacing,
+    this.selectionNotifier,
+    this._textScaleFactor,
+    this._height,
+    this._width,
+    this._isHijri,
+    this._navigationDirection,
+    this.localizations,
+    this.isMobilePlatform,
+    this._weekNumberStyle,
+    this._weekNumberPanelWidth,
+    this._disableDatesCollection,
+    this._specialEventDates,
+  );
 
   bool isMobilePlatform;
 
@@ -1909,6 +1940,25 @@ abstract class _IMonthView extends RenderBox
     }
 
     _specialDates = value;
+    if (childCount == 0) {
+      markNeedsPaint();
+    } else {
+      markNeedsLayout();
+    }
+  }
+
+  /// Holds the special dates of the [SfDateRangePicker].
+  List<SpecialEvent>? _specialEventDates;
+
+  List<SpecialEvent>? get specialEventDates => _specialEventDates;
+
+  set specialEventDates(List<SpecialEvent>? value) {
+    if (DateRangePickerHelper.isEventDateCollectionEquals(
+        _specialEventDates, value)) {
+      return;
+    }
+
+    _specialEventDates = value;
     if (childCount == 0) {
       markNeedsPaint();
     } else {
@@ -2541,6 +2591,7 @@ class _MonthViewSingleSelectionRenderObject extends _IMonthView {
       bool showLeadingAndTailingDates,
       List<dynamic>? blackoutDates,
       List<dynamic>? specialDates,
+      List<SpecialEvent>? specialEventDates,
       List<int> weekendDays,
       DateRangePickerSelectionShape selectionShape,
       double selectionRadius,
@@ -2578,6 +2629,7 @@ class _MonthViewSingleSelectionRenderObject extends _IMonthView {
             showLeadingAndTailingDates,
             blackoutDates,
             specialDates,
+            specialEventDates,
             weekendDays,
             selectionShape,
             selectionRadius,
@@ -2722,6 +2774,7 @@ class _MonthViewMultiSelectionRenderObject extends _IMonthView {
       bool showLeadingAndTailingDates,
       List<dynamic>? blackoutDates,
       List<dynamic>? specialDates,
+      List<SpecialEvent>? specialEventDates,
       List<int> weekendDays,
       DateRangePickerSelectionShape selectionShape,
       double selectionRadius,
@@ -2759,6 +2812,7 @@ class _MonthViewMultiSelectionRenderObject extends _IMonthView {
             showLeadingAndTailingDates,
             blackoutDates,
             specialDates,
+            specialEventDates,
             weekendDays,
             selectionShape,
             selectionRadius,
@@ -2908,6 +2962,7 @@ class _MonthViewRangeSelectionRenderObject extends _IMonthView {
       bool showLeadingAndTailingDates,
       List<dynamic>? blackoutDates,
       List<dynamic>? specialDates,
+      List<SpecialEvent>? specialEventDates,
       List<int> weekendDays,
       DateRangePickerSelectionShape selectionShape,
       double selectionRadius,
@@ -2945,6 +3000,7 @@ class _MonthViewRangeSelectionRenderObject extends _IMonthView {
             showLeadingAndTailingDates,
             blackoutDates,
             specialDates,
+            specialEventDates,
             weekendDays,
             selectionShape,
             selectionRadius,
@@ -3186,6 +3242,7 @@ class _MonthViewExtendableRangeSelectionRenderObject extends _IMonthView {
       bool showLeadingAndTailingDates,
       List<dynamic>? blackoutDates,
       List<dynamic>? specialDates,
+      List<SpecialEvent>? specialEventDates,
       List<int> weekendDays,
       DateRangePickerSelectionShape selectionShape,
       double selectionRadius,
@@ -3224,6 +3281,7 @@ class _MonthViewExtendableRangeSelectionRenderObject extends _IMonthView {
             showLeadingAndTailingDates,
             blackoutDates,
             specialDates,
+            specialEventDates,
             weekendDays,
             selectionShape,
             selectionRadius,
@@ -3487,6 +3545,7 @@ class _MonthViewMultiRangeSelectionRenderObject extends _IMonthView {
       bool showLeadingAndTailingDates,
       List<dynamic>? blackoutDates,
       List<dynamic>? specialDates,
+      List<SpecialEvent>? specialEventDates,
       List<int> weekendDays,
       DateRangePickerSelectionShape selectionShape,
       double selectionRadius,
@@ -3524,6 +3583,7 @@ class _MonthViewMultiRangeSelectionRenderObject extends _IMonthView {
             showLeadingAndTailingDates,
             blackoutDates,
             specialDates,
+            specialEventDates,
             weekendDays,
             selectionShape,
             selectionRadius,
@@ -4429,6 +4489,13 @@ void _drawMonthCellsAndSelection(PaintingContext context, Size size,
           DateRangePickerHelper.isWeekend(monthView.weekendDays, date);
       final bool isSpecialDate = DateRangePickerHelper.isDateWithInVisibleDates(
           monthView.visibleDates, monthView.specialDates, date);
+      // Special Event
+      final List<DateTime>? specialEventDates =
+          monthView.specialEventDates?.map((e) => e.date).toList();
+      final bool isEventSpecialDate =
+          DateRangePickerHelper.isDateWithInVisibleDates(
+              monthView.visibleDates, specialEventDates, date);
+      //
       bool isDisabledDate = DateRangePickerHelper.isDateWithInVisibleDates(
           monthView.visibleDates, monthView.disableDatesCollection, date);
       if (!isDisabledDate &&
@@ -4445,26 +4512,31 @@ void _drawMonthCellsAndSelection(PaintingContext context, Size size,
       }
 
       textStyle = _updateTextStyle(
-          monthView,
-          isNextMonth,
-          isPreviousMonth,
-          isCurrentDate,
-          isEnableDate,
-          isBlackedDate,
-          isWeekEnd,
-          isSpecialDate,
-          isDisabledDate);
+        monthView,
+        isNextMonth,
+        isPreviousMonth,
+        isCurrentDate,
+        isEnableDate,
+        isBlackedDate,
+        isWeekEnd,
+        isSpecialDate,
+        isDisabledDate,
+        isSpecialEventDate: isEventSpecialDate,
+        date: date,
+      );
       dateDecoration = _updateDecoration(
-          isNextMonth,
-          isPreviousMonth,
-          monthView,
-          isEnableDate,
-          isCurrentDate,
-          isBlackedDate,
-          date,
-          isWeekEnd,
-          isSpecialDate,
-          isDisabledDate);
+        isNextMonth,
+        isPreviousMonth,
+        monthView,
+        isEnableDate,
+        isCurrentDate,
+        isBlackedDate,
+        date,
+        isWeekEnd,
+        isSpecialDate,
+        isDisabledDate,
+        isSpecialEventDate: isEventSpecialDate,
+      );
 
       final bool isSelectedDate = selectedIndex.contains(currentIndex);
       if (isSelectedDate &&
@@ -4804,7 +4876,9 @@ TextStyle _updateTextStyle(
     bool isBlackedDate,
     bool isWeekEnd,
     bool isSpecialDate,
-    bool isDisabledDate) {
+    bool isDisabledDate,
+    {bool isSpecialEventDate = false,
+    required DateTime date}) {
   final TextStyle currentDatesTextStyle =
       monthView.cellStyle.textStyle as TextStyle? ??
           monthView.datePickerTheme.activeDatesTextStyle!;
@@ -4822,6 +4896,14 @@ TextStyle _updateTextStyle(
     if (specialDateTextStyle != null) {
       return specialDateTextStyle;
     }
+  }
+
+  if (isSpecialEventDate) {
+    return DateRangePickerHelper.getEventDateTextStyleWithInVisibleDates(
+        monthView.specialEventDates,
+        date,
+        monthView.cellStyle.specialDatesTextStyle as TextStyle? ??
+            monthView.datePickerTheme.specialDatesTextStyle);
   }
 
   if (!isEnableDate || isDisabledDate) {
@@ -4862,7 +4944,8 @@ Decoration? _updateDecoration(
     dynamic date,
     bool isWeekEnd,
     bool isSpecialDate,
-    bool isDisabledDate) {
+    bool isDisabledDate,
+    {bool isSpecialEventDate = false}) {
   final Decoration? dateDecoration =
       monthView.cellStyle.cellDecoration as Decoration?;
 
@@ -4872,6 +4955,12 @@ Decoration? _updateDecoration(
 
   if (isSpecialDate && monthView.cellStyle.specialDatesDecoration != null) {
     return monthView.cellStyle.specialDatesDecoration as Decoration;
+  }
+  if (isSpecialEventDate) {
+    return DateRangePickerHelper.getEventDateDecorationWithInVisibleDates(
+        monthView.specialEventDates,
+        date,
+        monthView.cellStyle.specialDatesDecoration as Decoration);
   }
 
   if ((!isEnableDate || isDisabledDate) &&

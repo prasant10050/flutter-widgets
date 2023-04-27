@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_core/core.dart';
+import 'package:syncfusion_flutter_datepicker/src/date_picker/special_event.dart';
 import '../../datepicker.dart';
 import 'picker_helper.dart';
 
@@ -558,23 +559,24 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
   /// Creates a date range picker month view settings for date range picker.
   ///
   /// The properties allows to customize the month view of [SfDateRangePicker].
-  const DateRangePickerMonthViewSettings(
-      {this.numberOfWeeksInView = 6,
-      this.firstDayOfWeek = 7,
-      this.dayFormat = 'EE',
-      this.viewHeaderHeight = 30,
-      @Deprecated('Use selectionRadius property in SfDateRangePicker')
-          // ignore: deprecated_member_use, deprecated_member_use_from_same_package
-          this.selectionRadius = -1,
-      this.showTrailingAndLeadingDates = false,
-      this.viewHeaderStyle = const DateRangePickerViewHeaderStyle(),
-      this.enableSwipeSelection = true,
-      this.blackoutDates,
-      this.specialDates,
-      this.weekendDays = const <int>[6, 7],
-      this.showWeekNumber = false,
-      this.weekNumberStyle = const DateRangePickerWeekNumberStyle()})
-      : assert(numberOfWeeksInView >= 1 && numberOfWeeksInView <= 6),
+  const DateRangePickerMonthViewSettings({
+    this.numberOfWeeksInView = 6,
+    this.firstDayOfWeek = 7,
+    this.dayFormat = 'EE',
+    this.viewHeaderHeight = 30,
+    @Deprecated('Use selectionRadius property in SfDateRangePicker')
+        // ignore: deprecated_member_use, deprecated_member_use_from_same_package
+        this.selectionRadius = -1,
+    this.showTrailingAndLeadingDates = false,
+    this.viewHeaderStyle = const DateRangePickerViewHeaderStyle(),
+    this.enableSwipeSelection = true,
+    this.blackoutDates,
+    this.specialDates,
+    this.weekendDays = const <int>[6, 7],
+    this.showWeekNumber = false,
+    this.weekNumberStyle = const DateRangePickerWeekNumberStyle(),
+    this.specialEventDates,
+  })  : assert(numberOfWeeksInView >= 1 && numberOfWeeksInView <= 6),
         assert(firstDayOfWeek >= 1 && firstDayOfWeek <= 7),
         assert(viewHeaderHeight >= -1);
 
@@ -1069,6 +1071,8 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
   /// }
   final DateRangePickerWeekNumberStyle weekNumberStyle;
 
+  final List<SpecialEvent>? specialEventDates;
+
   @override
   bool operator ==(dynamic other) {
     if (identical(this, other)) {
@@ -1093,7 +1097,8 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
         otherStyle.weekendDays == weekendDays &&
         otherStyle.enableSwipeSelection == enableSwipeSelection &&
         otherStyle.showWeekNumber == showWeekNumber &&
-        otherStyle.weekNumberStyle == weekNumberStyle;
+        otherStyle.weekNumberStyle == weekNumberStyle &&
+        otherStyle.specialEventDates == specialEventDates;
   }
 
   @override
@@ -1115,6 +1120,8 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
     properties.add(IterableProperty<int>('weekendDays', weekendDays));
     properties.add(DiagnosticsProperty<bool>('showWeekNumber', showWeekNumber));
     properties.add(weekNumberStyle.toDiagnosticsNode(name: 'weekNumberStyle'));
+    properties.add(IterableDiagnostics<SpecialEvent>(specialEventDates)
+        .toDiagnosticsNode(name: 'specialEventDates'));
   }
 
   @override
@@ -1134,7 +1141,8 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
         /// https://api.flutter.dev/flutter/painting/TextStyle/hashCode.html
         specialDates == null ? null : Object.hashAll(specialDates!),
         blackoutDates == null ? null : Object.hashAll(blackoutDates!),
-        Object.hashAll(weekendDays));
+        Object.hashAll(weekendDays),
+        Object.hashAll(specialEventDates));
   }
 }
 

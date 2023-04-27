@@ -1,10 +1,12 @@
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 import 'package:syncfusion_flutter_core/core.dart';
 import 'package:syncfusion_flutter_core/localizations.dart';
 import 'date_picker_manager.dart';
 import 'hijri_date_picker_manager.dart';
+import 'special_event.dart';
 
 // ignore: avoid_classes_with_only_static_members
 /// Holds the static helper methods of the date picker.
@@ -208,6 +210,37 @@ class DateRangePickerHelper {
     return true;
   }
 
+  /// Checks both the date collection are equal or not.
+  static bool isEventDateCollectionEquals(List<SpecialEvent>? datesCollection1,
+      List<SpecialEvent>? datesCollection2) {
+    if (datesCollection1 == datesCollection2) {
+      return true;
+    }
+
+    if ((datesCollection1 == null &&
+            datesCollection2 != null &&
+            datesCollection2.isEmpty) ||
+        (datesCollection2 == null &&
+            datesCollection1 != null &&
+            datesCollection1.isEmpty)) {
+      return false;
+    }
+
+    if ((datesCollection1 == null && datesCollection2 != null) ||
+        (datesCollection2 == null && datesCollection1 != null) ||
+        (datesCollection1?.length != datesCollection2?.length)) {
+      return false;
+    }
+
+    for (int i = 0; i < datesCollection1!.length; i++) {
+      if (!isSameDate(datesCollection1[i].date, datesCollection2![i].date)) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   /// Check the date as enable date or disable date based on min date, max date
   /// and enable past dates values.
   static bool isEnabledDate(dynamic startDate, dynamic endDate,
@@ -347,6 +380,35 @@ class DateRangePickerHelper {
     }
 
     return false;
+  }
+
+  /// Get the textstyle of special event date.
+  static TextStyle getEventDateTextStyleWithInVisibleDates(
+      List<SpecialEvent>? dates, dynamic date, TextStyle defaultTextStyle) {
+    assert(
+        defaultTextStyle != null, 'Set defaultTextStyle of special event date');
+    if (dates == null || dates.isEmpty) {
+      return defaultTextStyle;
+    }
+    final SpecialEvent matchSpecialEvent = dates.singleWhere(
+      (element) => isSameDate(element.date, date),
+      orElse: defaultTextStyle,
+    );
+    return matchSpecialEvent.textStyle;
+  }
+
+  /// Get the decoration of special event date.
+  static Decoration getEventDateDecorationWithInVisibleDates(
+      List<SpecialEvent>? dates, dynamic date, Decoration defaultDecoration) {
+    assert(defaultDecoration != null,
+        'Set defaultDecoration of special event date');
+    if (dates == null || dates.isEmpty) {
+      return defaultDecoration;
+    }
+    final SpecialEvent matchSpecialEvent = dates.singleWhere(
+        (element) => isSameDate(element.date, date),
+        orElse: defaultDecoration);
+    return matchSpecialEvent.decoration;
   }
 
   /// Check the date week day placed in week end day collection.
