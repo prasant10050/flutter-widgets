@@ -692,7 +692,7 @@ class _MonthViewSingleSelectionRenderWidget
   final List<dynamic>? blackoutDates;
 
   final List<dynamic>? specialDates;
-  final List<SpecialEvent> specialEventDates;
+  final List<SpecialEvent>? specialEventDates;
 
   final List<int> weekendDays;
 
@@ -4908,7 +4908,8 @@ TextStyle _updateTextStyle(
         monthView.specialEventDates,
         date,
         monthView.cellStyle.specialDatesTextStyle as TextStyle? ??
-            monthView.datePickerTheme.specialDatesTextStyle);
+            monthView.datePickerTheme.specialDatesTextStyle ??
+            const TextStyle());
   }
 
   if (!isEnableDate || isDisabledDate) {
