@@ -1142,7 +1142,7 @@ class DateRangePickerMonthViewSettings with Diagnosticable {
         specialDates == null ? null : Object.hashAll(specialDates!),
         blackoutDates == null ? null : Object.hashAll(blackoutDates!),
         Object.hashAll(weekendDays),
-        Object.hashAll(specialEventDates));
+        specialEventDates == null ? null : Object.hashAll(specialEventDates!));
   }
 }
 
