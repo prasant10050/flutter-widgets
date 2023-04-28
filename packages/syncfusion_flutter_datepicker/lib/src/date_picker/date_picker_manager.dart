@@ -1222,15 +1222,17 @@ class DateRangePickerYearCellStyle with Diagnosticable {
   ///
   /// The properties allows to customize the year cells in year view of
   /// [SfDateRangePicker].
-  const DateRangePickerYearCellStyle(
-      {this.textStyle,
-      this.todayTextStyle,
-      this.leadingDatesTextStyle,
-      this.disabledDatesTextStyle,
-      this.cellDecoration,
-      this.todayCellDecoration,
-      this.disabledDatesDecoration,
-      this.leadingDatesDecoration});
+  const DateRangePickerYearCellStyle({
+    this.textStyle,
+    this.todayTextStyle,
+    this.leadingDatesTextStyle,
+    this.disabledDatesTextStyle,
+    this.cellDecoration,
+    this.todayCellDecoration,
+    this.disabledDatesDecoration,
+    this.leadingDatesDecoration,
+    this.todayCellTextStyle,
+  });
 
   /// The text style for the text in the [SfDateRangePicker] year, decade and
   /// century view cells.
@@ -1325,6 +1327,7 @@ class DateRangePickerYearCellStyle with Diagnosticable {
   ///
   /// ```
   final TextStyle? todayTextStyle;
+  final TextStyle? todayCellTextStyle;
 
   /// The text style for the text in the leading dates cells of
   /// [SfDateRangePicker] year, decade and century view.
@@ -1658,7 +1661,8 @@ class DateRangePickerYearCellStyle with Diagnosticable {
         otherStyle.cellDecoration == cellDecoration &&
         otherStyle.todayCellDecoration == todayCellDecoration &&
         otherStyle.leadingDatesDecoration == leadingDatesDecoration &&
-        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle;
+        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle &&
+        otherStyle.todayCellTextStyle == todayCellTextStyle;
   }
 
   @override
@@ -1679,19 +1683,23 @@ class DateRangePickerYearCellStyle with Diagnosticable {
         'todayCellDecoration', todayCellDecoration));
     properties.add(DiagnosticsProperty<Decoration>(
         'leadingDatesDecoration', leadingDatesDecoration));
+    properties.add(DiagnosticsProperty<TextStyle>(
+        'todayCellTextStyle', todayCellTextStyle));
   }
 
   @override
   int get hashCode {
     return Object.hash(
-        textStyle,
-        todayTextStyle,
-        leadingDatesTextStyle,
-        disabledDatesTextStyle,
-        disabledDatesDecoration,
-        cellDecoration,
-        todayCellDecoration,
-        leadingDatesDecoration);
+      textStyle,
+      todayTextStyle,
+      leadingDatesTextStyle,
+      disabledDatesTextStyle,
+      disabledDatesDecoration,
+      cellDecoration,
+      todayCellDecoration,
+      leadingDatesDecoration,
+      todayCellTextStyle,
+    );
   }
 }
 
@@ -1812,6 +1820,7 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
     this.weekendDatesDecoration,
     this.specialEventDatesTextStyle,
     this.specialEventDatesDecoration,
+    this.todayCellTextStyle,
   });
 
   /// The text style for the text in the [SfDateRangePicker] month cells.
@@ -1934,6 +1943,7 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
   ///
   /// ```
   final TextStyle? todayTextStyle;
+  final TextStyle? todayCellTextStyle;
 
   /// The text style for the text in the trailing dates cell of
   /// [SfDateRangePicker] month view.
@@ -3095,7 +3105,8 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
         otherStyle.todayCellDecoration == todayCellDecoration &&
         otherStyle.trailingDatesDecoration == trailingDatesDecoration &&
         otherStyle.leadingDatesDecoration == leadingDatesDecoration &&
-        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle;
+        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle &&
+        otherStyle.todayCellTextStyle == todayCellTextStyle;
   }
 
   @override
@@ -3132,6 +3143,8 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
         'weekendDatesDecoration', weekendDatesDecoration));
     properties.add(DiagnosticsProperty<Decoration>(
         'specialDatesDecoration', specialDatesDecoration));
+    properties.add(DiagnosticsProperty<TextStyle>(
+        'todayCellTextStyle', todayCellTextStyle));
   }
 
   @override
@@ -3153,6 +3166,7 @@ class DateRangePickerMonthCellStyle with Diagnosticable {
       specialDatesTextStyle,
       blackoutDateTextStyle,
       weekendTextStyle,
+      todayCellTextStyle,
     ]);
   }
 }

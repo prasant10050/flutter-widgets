@@ -596,13 +596,15 @@ class HijriDatePickerYearCellStyle with Diagnosticable {
   ///
   /// The properties allows to customize the year cells in year view of
   /// [SfHijriDateRangePicker].
-  const HijriDatePickerYearCellStyle(
-      {this.textStyle,
-      this.todayTextStyle,
-      this.disabledDatesTextStyle,
-      this.cellDecoration,
-      this.todayCellDecoration,
-      this.disabledDatesDecoration});
+  const HijriDatePickerYearCellStyle({
+    this.textStyle,
+    this.todayTextStyle,
+    this.disabledDatesTextStyle,
+    this.cellDecoration,
+    this.todayCellDecoration,
+    this.disabledDatesDecoration,
+    this.todayCellTextStyle,
+  });
 
   /// The text style for the text in the [SfHijriDateRangePicker] year and
   /// decade view cells.
@@ -693,6 +695,7 @@ class HijriDatePickerYearCellStyle with Diagnosticable {
   ///
   /// ```
   final TextStyle? todayTextStyle;
+  final TextStyle? todayCellTextStyle;
 
   /// The text style for the text in the disabled dates cell of
   /// [SfHijriDateRangePicker] year and decade view.
@@ -912,7 +915,8 @@ class HijriDatePickerYearCellStyle with Diagnosticable {
         otherStyle.disabledDatesDecoration == disabledDatesDecoration &&
         otherStyle.cellDecoration == cellDecoration &&
         otherStyle.todayCellDecoration == todayCellDecoration &&
-        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle;
+        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle &&
+        otherStyle.todayCellTextStyle == todayCellTextStyle;
   }
 
   @override
@@ -929,12 +933,20 @@ class HijriDatePickerYearCellStyle with Diagnosticable {
         .add(DiagnosticsProperty<Decoration>('cellDecoration', cellDecoration));
     properties.add(DiagnosticsProperty<Decoration>(
         'todayCellDecoration', todayCellDecoration));
+    properties.add(DiagnosticsProperty<TextStyle>(
+        'todayCellTextStyle', todayCellTextStyle));
   }
 
   @override
   int get hashCode {
-    return Object.hash(textStyle, todayTextStyle, disabledDatesTextStyle,
-        disabledDatesDecoration, cellDecoration, todayCellDecoration);
+    return Object.hash(
+        textStyle,
+        todayTextStyle,
+        disabledDatesTextStyle,
+        disabledDatesDecoration,
+        cellDecoration,
+        todayCellDecoration,
+        todayCellTextStyle);
   }
 }
 
@@ -1012,19 +1024,21 @@ class HijriDatePickerMonthCellStyle with Diagnosticable {
   ///
   /// The properties allows to customize the month cells in month view of
   /// [SfHijriDateRangePicker].
-  const HijriDatePickerMonthCellStyle(
-      {this.textStyle,
-      this.todayTextStyle,
-      this.disabledDatesTextStyle,
-      this.blackoutDateTextStyle,
-      this.weekendTextStyle,
-      this.specialDatesTextStyle,
-      this.specialDatesDecoration,
-      this.blackoutDatesDecoration,
-      this.cellDecoration,
-      this.todayCellDecoration,
-      this.disabledDatesDecoration,
-      this.weekendDatesDecoration});
+  const HijriDatePickerMonthCellStyle({
+    this.textStyle,
+    this.todayTextStyle,
+    this.disabledDatesTextStyle,
+    this.blackoutDateTextStyle,
+    this.weekendTextStyle,
+    this.specialDatesTextStyle,
+    this.specialDatesDecoration,
+    this.blackoutDatesDecoration,
+    this.cellDecoration,
+    this.todayCellDecoration,
+    this.disabledDatesDecoration,
+    this.weekendDatesDecoration,
+    this.todayCellTextStyle,
+  });
 
   /// The text style for the text in the [SfHijriDateRangePicker] month cells.
   ///
@@ -1139,6 +1153,7 @@ class HijriDatePickerMonthCellStyle with Diagnosticable {
   ///
   /// ```
   final TextStyle? todayTextStyle;
+  final TextStyle? todayCellTextStyle;
 
   /// The text style for the text in the disabled dates cell of
   /// [SfHijriDateRangePicker] month view.
@@ -1755,7 +1770,8 @@ class HijriDatePickerMonthCellStyle with Diagnosticable {
         otherStyle.disabledDatesDecoration == disabledDatesDecoration &&
         otherStyle.cellDecoration == cellDecoration &&
         otherStyle.todayCellDecoration == todayCellDecoration &&
-        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle;
+        otherStyle.disabledDatesTextStyle == disabledDatesTextStyle &&
+        otherStyle.todayCellTextStyle == todayCellTextStyle;
   }
 
   @override
@@ -1784,6 +1800,8 @@ class HijriDatePickerMonthCellStyle with Diagnosticable {
         'weekendDatesDecoration', weekendDatesDecoration));
     properties.add(DiagnosticsProperty<Decoration>(
         'specialDatesDecoration', specialDatesDecoration));
+    properties.add(DiagnosticsProperty<TextStyle>(
+        'todayCellTextStyle', todayCellTextStyle));
   }
 
   @override
@@ -1801,6 +1819,7 @@ class HijriDatePickerMonthCellStyle with Diagnosticable {
       specialDatesTextStyle,
       blackoutDateTextStyle,
       weekendTextStyle,
+      todayCellTextStyle,
     ]);
   }
 }

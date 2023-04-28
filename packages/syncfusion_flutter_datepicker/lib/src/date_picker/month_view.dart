@@ -4919,8 +4919,8 @@ TextStyle _updateTextStyle(
   }
 
   if (isCurrentDate) {
-    return monthView.cellStyle.todayTextStyle as TextStyle? ??
-        monthView.datePickerTheme.todayTextStyle!;
+    return monthView.cellStyle.todayCellTextStyle as TextStyle? ??
+        monthView.datePickerTheme.todayCellTextStyle!;
   }
 
   if (isWeekEnd && monthView.cellStyle.weekendTextStyle != null) {

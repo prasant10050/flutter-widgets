@@ -2606,7 +2606,7 @@ abstract class _IYearViewRenderObject extends RenderBox
     }
 
     if (isCurrentDate) {
-      return cellStyle.todayTextStyle as TextStyle? ??
+      return cellStyle.todayCellTextStyle as TextStyle? ??
           datePickerTheme.todayCellTextStyle!;
     }
 
